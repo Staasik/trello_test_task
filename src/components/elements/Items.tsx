@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { AppState, Item, findBoardWithId, findListWithId } from "../redux/reducer";
+import { AppState, Item, findBoardWithId, findListWithId } from "../../redux/reducer";
 import { ItemsContainer, Text, ItemElement } from "../../styles/elements/Items";
-import { deleteItem, doItem, reorderItems } from "../redux/actions";
+import { deleteItem, doItem, reorderItems } from "../../redux/actions";
 import { useDrag, useDrop } from "react-dnd";
 
 // Пропсы компонента, которые ожидаются при его использовании

@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { AppState } from "../redux/reducer";
+import { AppState } from "../../redux/reducer";
 import { BoardsContainer, Text, BoardItem } from "../../styles/elements/Boards";
-import { deleteBoard } from "../redux/actions";
+import { deleteBoard } from "../../redux/actions";
 import { Link } from "react-router-dom";
 
 const Boards: React.FC = () => {

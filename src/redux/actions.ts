@@ -1,8 +1,3 @@
-// Определяем типы действий для досок
-export const ADD_BOARD = 'ADD_BOARD'; // Действие для добавления доски
-export const DELETE_BOARD = 'DELETE_BOARD'; // Действие для удаления доски
-export const LOAD_BOARDS = 'LOAD_BOARDS'; // Действие для загрузки досок
-
 type Board = {
     id: number; 
     name: string; 
@@ -20,6 +15,11 @@ type Item = {
     name: string; 
     done: boolean;
 };
+
+// Определяем типы действий для досок
+export const ADD_BOARD = 'ADD_BOARD'; // Действие для добавления доски
+export const DELETE_BOARD = 'DELETE_BOARD'; // Действие для удаления доски
+export const LOAD_BOARDS = 'LOAD_BOARDS'; // Действие для загрузки досок
 
 // Определяем общий тип для всех действий связанных с досками
 export type BoardAction =
@@ -49,23 +49,10 @@ export const loadBoards = (boards: Board[]): BoardAction => ({
 export const ADD_LIST = 'ADD_LIST'; // Добавление списка
 export const DELETE_LIST = 'DELETE_LIST'; // Удаление списка
 
-// Определяем типы действий для пунктов
-export const ADD_ITEM = 'ADD_ITEM'; // Добавление пункта
-export const DELETE_ITEM = 'DELETE_ITEM'; // Удаление пункта
-export const UPDATE_ITEM = 'UPDATE_ITEM'; // Обновление итема
-export const REORDER_ITEMS = 'REORDER_ITEMS'; // Обновление списка итемов после перетаскивания
-
 // Определяем общий тип для всех действий связанных с списками
 export type ListAction =
     | { type: typeof ADD_LIST; payload: { boardId: number; list: List } } // Добавление списка
     | { type: typeof DELETE_LIST; payload: { boardId: number; listId: number } } // Удаление списка
-
-// Определяем общий тип для всех действий связанных с пунктами
-export type ItemAction =
-    | { type: typeof ADD_ITEM; payload: { boardId: number; listId: number; item: Item } } // Добавление пункта
-    | { type: typeof DELETE_ITEM; payload: { boardId: number; listId: number; itemId: number } } // Удаление пункта    
-    | { type: typeof UPDATE_ITEM; payload:{boardId: number; listId: number; itemId: number }} // Обновление состояния выполненного или нет итема
-    | { type: typeof REORDER_ITEMS; payload:{boardId: number; listId: number; startIndex: number, endIndex: number}}; // Обновление списка итемов после перетаскивания
 
 // Создаем действие для добавления списка
 export const addList = (boardId: number, list: List): ListAction => ({
@@ -78,6 +65,19 @@ export const deleteList = (boardId: number, listId: number): ListAction => ({
     type: DELETE_LIST,
     payload: { boardId, listId },
 });
+
+// Определяем типы действий для пунктов
+export const ADD_ITEM = 'ADD_ITEM'; // Добавление пункта
+export const DELETE_ITEM = 'DELETE_ITEM'; // Удаление пункта
+export const UPDATE_ITEM = 'UPDATE_ITEM'; // Обновление итема
+export const REORDER_ITEMS = 'REORDER_ITEMS'; // Обновление списка итемов после перетаскивания
+
+// Определяем общий тип для всех действий связанных с пунктами
+export type ItemAction =
+    | { type: typeof ADD_ITEM; payload: { boardId: number; listId: number; item: Item } } // Добавление пункта
+    | { type: typeof DELETE_ITEM; payload: { boardId: number; listId: number; itemId: number } } // Удаление пункта    
+    | { type: typeof UPDATE_ITEM; payload:{boardId: number; listId: number; itemId: number }} // Обновление состояния выполненного или нет итема
+    | { type: typeof REORDER_ITEMS; payload:{boardId: number; listId: number; startIndex: number, endIndex: number}}; // Обновление списка итемов после перетаскивания
 
 // Создаем действие для добавления пункта
 export const addItem = (boardId: number, listId: number, item: Item): ItemAction => ({

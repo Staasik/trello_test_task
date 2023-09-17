@@ -30,14 +30,17 @@ const initialState: AppState = {
     currentBoardIndex: 0, // Инициализация индекса
 };
 
+// Находим доску по айди
 export function findBoardWithId(boards: Board[], boardId: number) {
     return boards.find((board) => board.id === boardId) as Board;
 }
 
+// Находим лист по айди
 export function findListWithId(board: Board, listId: number) {
     return board.lists.find((list) => list.id === listId) as List;
 }
 
+// Находим список элементов листа по айди
 export function findItemWithId(list: List, itemId: number) {
     return list.items.find((item) => item.id === itemId) as Item;
 }
@@ -118,6 +121,7 @@ const reducer = (state = initialState, action: BoardAction | ListAction | ItemAc
             });
             localStorage.setItem('boards', JSON.stringify(updatedBoards));// Обновляем локальное хранилище
             return { ...state, boards: updatedBoards };
+            
         default:
             return state;
     }

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import { AppState, List, findBoardWithId } from "../redux/reducer";
-import { addList, loadBoards } from "../redux/actions";
+import { AppState, List, findBoardWithId } from "../../redux/reducer";
+import { addList, loadBoards } from "../../redux/actions";
 import Lists from "../elements/Lists";
 import {HtmlWrapper,Logo,Text,Container,AddList,SelectedBoard,ListDescription,Name,BoardName,} from "../../styles/pages/Board";
 

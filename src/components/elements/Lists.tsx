@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { AppState, Item, findBoardWithId } from "../redux/reducer";
+import { AppState, Item, findBoardWithId } from "../../redux/reducer";
 import { ListsContainer, Text, ListItem, Name, ItemDescription, ListName } from "../../styles/elements/Lists";
-import { addItem, deleteList, deleteItem,reorderItems } from "../redux/actions";
+import { addItem, deleteList, deleteItem } from "../../redux/actions";
 import Items from "./Items";
 import { useDrop } from 'react-dnd'
 

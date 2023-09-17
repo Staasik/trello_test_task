@@ -2,7 +2,7 @@ import {HtmlWrapper,Logo,Text,Container,BoardName,NewBoard,Description,Name,Save
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Boards from "../elements/Boards";
-import { addBoard, loadBoards } from "../redux/actions";
+import { addBoard, loadBoards } from "../../redux/actions";
 import { Link } from "react-router-dom";
 
 function Main() {
