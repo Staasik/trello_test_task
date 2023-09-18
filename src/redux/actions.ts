@@ -25,7 +25,7 @@ export const LOAD_BOARDS = 'LOAD_BOARDS'; // Действие для загру�
 export type BoardAction =
     | { type: typeof ADD_BOARD; payload: Board } // Добавление доски
     | { type: typeof DELETE_BOARD; payload: number } // Удаление доски
-    | { type: typeof LOAD_BOARDS; payload: Board[] } // Загрузка списка досок
+    | { type: typeof LOAD_BOARDS; } // Загрузка списка досок
 
 // Создаем действие для добавления доски
 export const addBoard = (board: Board): BoardAction => ({
@@ -40,9 +40,8 @@ export const deleteBoard = (boardId: number): BoardAction => ({
 });
 
 // Создаем действие для загрузки досок
-export const loadBoards = (boards: Board[]): BoardAction => ({
+export const loadBoards = (): BoardAction => ({
     type: LOAD_BOARDS,
-    payload: boards,
 });
 
 // Определяем типы действий для списков

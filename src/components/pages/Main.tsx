@@ -1,4 +1,4 @@
-import {HtmlWrapper,Logo,Text,Container,BoardName,NewBoard,Description,Name,Save,Cansel,Buttons,StyledLink,SvgAdd,SvgClose} from "../../styles/pages/Main";
+import {HtmlWrapper,Logo,Text,Container,BoardName,NewBoard,Description,Name,Save,Cancel,Buttons,StyledLink,SvgAdd,SvgClose} from "../../styles/pages/Main";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Boards from "../elements/Boards";
@@ -11,10 +11,7 @@ function Main() {
   const dispatch = useDispatch();// Получение функции диспетчера для отправки действий в Redux
 
   useEffect(() => {
-    const storedBoards = localStorage.getItem("boards"); // При инициализации компонента загружаем список досок из локального хранилища
-    if (storedBoards) {
-      dispatch(loadBoards(JSON.parse(storedBoards))); // Загружаем доски, если они есть
-    }
+    dispatch(loadBoards()); // Загружаем доски
   }, [dispatch]);
 
   // Обработчик сохранения новой доски
@@ -47,7 +44,7 @@ function Main() {
             <BoardName>
               <SvgAdd/>
               <Text>Новая доска</Text>
-              <SvgClose style={{ cursor: "pointer"}} onClick={() => closeBoard()}/>
+              <SvgClose onClick={() => closeBoard()}/>
             </BoardName>
             <Description>
               <Text>Название доски</Text>
@@ -58,7 +55,7 @@ function Main() {
                 maxLength={25}>
               </Name>
               <Buttons>
-                <Cansel onClick={() => closeBoard()}>Отмена</Cansel>
+                <Cancel onClick={() => closeBoard()}>Отмена</Cancel>
                 <Save onClick={() => saveBoard()}>Сохранить</Save>
               </Buttons>
             </Description>

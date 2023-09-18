@@ -18,10 +18,7 @@ function MyBoard() {
   const currentBoard = findBoardWithId(boards, currentBoardId); // Найти доску по айди
 
   useEffect(() => {
-    const storedBoards = localStorage.getItem("boards"); // При инициализации компонента загружаем список досок из локального хранилища
-    if (storedBoards) {
-      dispatch(loadBoards(JSON.parse(storedBoards))); // Загружаем доски, если они есть
-    }
+    dispatch(loadBoards()); // Загружаем доски
   }, [dispatch]);
 
   // Обработчик открытия формы для создания нового листа
@@ -68,7 +65,7 @@ function MyBoard() {
                 onChange={(e) => setListName(e.target.value)}
                 onKeyDown={handleEnterPress}
               />
-              <SvgClose style={{ cursor: "pointer" }} onClick={closeList}/>
+              <SvgClose onClick={closeList}/>
             </ListDescription>
           )}
         </SelectedBoard>

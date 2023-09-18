@@ -50,9 +50,9 @@ const DraggableItem: React.FC<DraggableItemProps> = ({ currentItem, currentBoard
     <ItemElement $done={currentItem.done} ref={(node) => dropRef(dragRef(node))}>
       <Text>{currentItem.name}</Text>
       {currentItem.done ?
-        <SvgClose style={{ cursor: "pointer" }} onClick={() => handleDeleteItem(currentItem.id)}/>
+        <SvgClose onClick={() => handleDeleteItem(currentItem.id)}/>
       : 
-        <SvgDone style={{ cursor: "pointer" }} onClick={() => handleCheckClick(currentItem, currentItem.id)}/>
+        <SvgDone onClick={() => handleCheckClick(currentItem, currentItem.id)}/>
       }
     </ItemElement>
   );

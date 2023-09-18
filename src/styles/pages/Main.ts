@@ -92,7 +92,7 @@ export const Save = styled.div`
     cursor: pointer;
     background-color:#9ACD32;
 `
-export const Cansel = styled(Save)`  
+export const Cancel = styled(Save)`  
     background-color:#FFD700;
 `
 export const StyledLink = styled(Link)`
@@ -102,6 +102,7 @@ export const StyledLink = styled(Link)`
 export const SvgDone = styled(MdDone)`
     width:25px;  
     height: 25px;
+    cursor:pointer;
 `
 export const SvgAdd = styled(MdAdd)`
     width:25px;  
@@ -110,6 +111,7 @@ export const SvgAdd = styled(MdAdd)`
 export const SvgClose = styled(MdClose)`
     width:25px;  
     height: 25px;
+    cursor:pointer;
 `
 
 

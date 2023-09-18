@@ -19,7 +19,7 @@ const Boards: React.FC = () => {
       {boards.map((board, index) => (
         <BoardItem key={index}>
           <StyledLink to={`/board/${board.id}`}><Text>{board.name}</Text></StyledLink>
-          <SvgClose style={{ cursor: "pointer" }} onClick={() => handleDeleteBoard(board.id)}/>
+          <SvgClose onClick={() => handleDeleteBoard(board.id)}/>
         </BoardItem>
       ))}
     </BoardsContainer>

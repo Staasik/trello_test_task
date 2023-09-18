@@ -60,7 +60,9 @@ const reducer = (state = initialState, action: BoardAction | ListAction | ItemAc
             return { ...state, boards: updatedBoardsAfterDelete, currentBoardIndex: 0 };
 
         case LOAD_BOARDS:
-            return { ...state, boards: action.payload };
+            const storedBoards = localStorage.getItem("boards");
+            if (storedBoards) return { ...state, boards: JSON.parse(storedBoards) };
+            return state;
 
         case ADD_LIST:
             const newBoardsWithList = [...state.boards];

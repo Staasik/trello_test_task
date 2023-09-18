@@ -86,7 +86,7 @@ const Lists: React.FC<ListsProps> = ({currentBoardId}) => {
         <ListItem key={listIndex}>
           <ListName>
             <Text>{list.name}</Text>
-            <SvgClose style={{ cursor: "pointer" }} onClick={() => handleDeleteList(list.id)}/>
+            <SvgClose onClick={() => handleDeleteList(list.id)}/>
           </ListName>
           <ItemDescription>
             <Name
