@@ -1,9 +1,8 @@
-import {HtmlWrapper,Logo,Text,Container,BoardName,NewBoard,Description,Name,Save,Cansel,Buttons,} from "../../styles/pages/Main";
+import {HtmlWrapper,Logo,Text,Container,BoardName,NewBoard,Description,Name,Save,Cansel,Buttons,StyledLink,SvgAdd,SvgClose} from "../../styles/pages/Main";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Boards from "../elements/Boards";
 import { addBoard, loadBoards } from "../../redux/actions";
-import { Link } from "react-router-dom";
 
 function Main() {
   const [newBoard, setNewBoard] = useState<boolean>(false); // Состояние для новой доски
@@ -41,14 +40,14 @@ function Main() {
 
   return (
     <HtmlWrapper>
-      <Logo><Link to="/" style={{ textDecoration: "none", color: "black" }}>Trello😀</Link></Logo>
+      <Logo><StyledLink to="/">Trello😀</StyledLink></Logo>
       <Container>
         {newBoard ? 
           <NewBoard>
             <BoardName>
-              <Text>➕</Text>
+              <SvgAdd/>
               <Text>Новая доска</Text>
-              <Text style={{ cursor: "pointer" }} onClick={() => closeBoard()}>✖️</Text>
+              <SvgClose style={{ cursor: "pointer"}} onClick={() => closeBoard()}/>
             </BoardName>
             <Description>
               <Text>Название доски</Text>
@@ -67,7 +66,7 @@ function Main() {
          : 
           <NewBoard>
             <BoardName style={{ cursor: "pointer" }} onClick={() => createBoard()}>
-              <Text>➕</Text>
+              <SvgAdd/>
               <Text>Новая доска</Text>
             </BoardName>
           </NewBoard>

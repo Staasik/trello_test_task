@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { AppState } from "../../redux/reducer";
 import { BoardsContainer, Text, BoardItem } from "../../styles/elements/Boards";
 import { deleteBoard } from "../../redux/actions";
-import { Link } from "react-router-dom";
+import {StyledLink,SvgClose} from "../../styles/pages/Main";
 
 const Boards: React.FC = () => {
   const boards = useSelector((state: AppState) => state.boards); // Получение списка досок из Redux состояния
@@ -18,8 +18,8 @@ const Boards: React.FC = () => {
     <BoardsContainer>
       {boards.map((board, index) => (
         <BoardItem key={index}>
-          <Link to={`/board/${board.id}`} style={{ textDecoration: "none", color: "black" }}><Text>{board.name}</Text></Link>
-          <Text style={{ cursor: "pointer" }} onClick={() => handleDeleteBoard(board.id)}>✖️</Text>
+          <StyledLink to={`/board/${board.id}`}><Text>{board.name}</Text></StyledLink>
+          <SvgClose style={{ cursor: "pointer" }} onClick={() => handleDeleteBoard(board.id)}/>
         </BoardItem>
       ))}
     </BoardsContainer>

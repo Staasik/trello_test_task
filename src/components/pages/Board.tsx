@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { AppState, List, findBoardWithId } from "../../redux/reducer";
 import { addList, loadBoards } from "../../redux/actions";
 import Lists from "../elements/Lists";
 import {HtmlWrapper,Logo,Text,Container,AddList,SelectedBoard,ListDescription,Name,BoardName,} from "../../styles/pages/Board";
+import {StyledLink,SvgClose} from "../../styles/pages/Main";
 
 function MyBoard() {
   const { boardId } = useParams(); // Получение параметра из URL
@@ -51,7 +52,7 @@ function MyBoard() {
 
   return (
     <HtmlWrapper>
-      <Logo><Link to="/" style={{ textDecoration: "none", color: "black" }}>Trello😀</Link></Logo>
+      <Logo><StyledLink to="/">Trello😀</StyledLink></Logo>
       <Container>
         <SelectedBoard>
           <BoardName>
@@ -67,7 +68,7 @@ function MyBoard() {
                 onChange={(e) => setListName(e.target.value)}
                 onKeyDown={handleEnterPress}
               />
-              <Text style={{ cursor: "pointer" }} onClick={closeList}>✖️</Text>
+              <SvgClose style={{ cursor: "pointer" }} onClick={closeList}/>
             </ListDescription>
           )}
         </SelectedBoard>

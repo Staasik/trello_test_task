@@ -35,7 +35,6 @@ export const SelectedBoard = styled.div`
 `
 export const BoardName = styled.div`
     width:100%;
-    height:50px;
     display:flex;
     justify-content:center;
     align-items:center;

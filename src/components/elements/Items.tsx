@@ -4,6 +4,7 @@ import { AppState, Item, findBoardWithId, findListWithId } from "../../redux/red
 import { ItemsContainer, Text, ItemElement } from "../../styles/elements/Items";
 import { deleteItem, doItem, reorderItems } from "../../redux/actions";
 import { useDrag, useDrop } from "react-dnd";
+import {SvgClose,SvgDone} from "../../styles/pages/Main";
 
 // Пропсы компонента, которые ожидаются при его использовании
 interface DraggableItemProps {
@@ -49,9 +50,9 @@ const DraggableItem: React.FC<DraggableItemProps> = ({ currentItem, currentBoard
     <ItemElement $done={currentItem.done} ref={(node) => dropRef(dragRef(node))}>
       <Text>{currentItem.name}</Text>
       {currentItem.done ?
-        <Text style={{ cursor: "pointer" }} onClick={() => handleDeleteItem(currentItem.id)}>✖️</Text>
+        <SvgClose style={{ cursor: "pointer" }} onClick={() => handleDeleteItem(currentItem.id)}/>
       : 
-        <Text style={{ cursor: "pointer" }} onClick={() => handleCheckClick(currentItem, currentItem.id)}>✔️</Text>
+        <SvgDone style={{ cursor: "pointer" }} onClick={() => handleCheckClick(currentItem, currentItem.id)}/>
       }
     </ItemElement>
   );

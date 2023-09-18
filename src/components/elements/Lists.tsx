@@ -5,6 +5,7 @@ import { ListsContainer, Text, ListItem, Name, ItemDescription, ListName } from 
 import { addItem, deleteList, deleteItem } from "../../redux/actions";
 import Items from "./Items";
 import { useDrop } from 'react-dnd'
+import {SvgClose} from "../../styles/pages/Main";
 
 // Пропсы компонента, которые ожидаются при его использовании
 interface DropTargetListProps {
@@ -85,7 +86,7 @@ const Lists: React.FC<ListsProps> = ({currentBoardId}) => {
         <ListItem key={listIndex}>
           <ListName>
             <Text>{list.name}</Text>
-            <Text style={{ cursor: "pointer" }} onClick={() => handleDeleteList(list.id)}>✖️</Text>
+            <SvgClose style={{ cursor: "pointer" }} onClick={() => handleDeleteList(list.id)}/>
           </ListName>
           <ItemDescription>
             <Name

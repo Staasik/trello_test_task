@@ -1,4 +1,8 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { MdDone } from 'react-icons/md';
+import { MdAdd } from 'react-icons/md';
+import { MdClose } from 'react-icons/md';
 
 export const HtmlWrapper = styled.div`
     width:100%;
@@ -42,7 +46,6 @@ export const NewBoard = styled.div`
 `
 export const BoardName = styled.div`
     width:100%;
-    height:50px;
     display:flex;
     justify-content:space-between;
     padding: 20px;
@@ -92,4 +95,21 @@ export const Save = styled.div`
 export const Cansel = styled(Save)`  
     background-color:#FFD700;
 `
+export const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: black;
+`
+export const SvgDone = styled(MdDone)`
+    width:25px;  
+    height: 25px;
+`
+export const SvgAdd = styled(MdAdd)`
+    width:25px;  
+    height: 25px;
+`
+export const SvgClose = styled(MdClose)`
+    width:25px;  
+    height: 25px;
+`
+
 
