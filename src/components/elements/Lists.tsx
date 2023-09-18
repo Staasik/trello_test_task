@@ -64,7 +64,7 @@ const Lists: React.FC<ListsProps> = ({currentBoardId}) => {
   // Добавление нового итема списка
   const handleAddItem = (listIndex: number) => {
     const newItemName = newItemNames[listIndex]; // Получаем имя нового элемента из состояния
-    if (newItemName.trim() !== "") {
+    if (newItemName && newItemName.trim() !== "") {
       const newItem: Item = {id: Date.now(), name: newItemName, done: false,}; // Создаем новый элемент
       const currentList = currentBoard.lists[listIndex]; // Получаем текущий список по индексу
       dispatch(addItem(currentBoard.id, currentList.id, newItem)); // Отправляем действие addItem в Redux

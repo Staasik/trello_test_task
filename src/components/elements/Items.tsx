@@ -23,8 +23,7 @@ const DraggableItem: React.FC<DraggableItemProps> = ({ currentItem, currentBoard
   };
 
   // Функция для обработки клика на галочку
-  const handleCheckClick = (item: Item, itemId: number) => {
-    item.done = true;
+  const handleCheckClick = (itemId: number) => {
     dispatch(doItem(currentBoardId, currentListId, itemId)); // Диспетчеризация действия обновления итема списка
   };
 
@@ -52,7 +51,7 @@ const DraggableItem: React.FC<DraggableItemProps> = ({ currentItem, currentBoard
       {currentItem.done ?
         <SvgClose onClick={() => handleDeleteItem(currentItem.id)}/>
       : 
-        <SvgDone onClick={() => handleCheckClick(currentItem, currentItem.id)}/>
+        <SvgDone onClick={() => handleCheckClick(currentItem.id)}/>
       }
     </ItemElement>
   );
